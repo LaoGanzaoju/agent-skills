@@ -1,0 +1,110 @@
+/* 报告设计系统 · 平台原生设计 token（暖中性底 + 九色阶按 50填底/600描边/800做字）
+   抽取自 2026-10-05 定稿报告；与 SKILL.md「版式与视觉」节配套使用。 */
+:root{
+    /* 底色与墨色：取自平台原生中性灰（暖调，非冷灰） */
+    --bg:#F1EFE8; --card:#FFFFFF;
+    --ink:#2C2C2A; --ink2:#5F5E5A; --ink3:#888780;
+    --line:#E4E2DB; --line2:#D3D1C7;
+    /* 主色：蓝。800 做标题与数字，600 做线，50 做底 */
+    --accent:#0C447C; --accent-mid:#185FA5; --accent-bg:#E6F1FB; --accent-line:#B5D4F4;
+    /* 强调：琥珀。600 / 50 */
+    --ochre:#854F0B; --ochre-bg:#FAEEDA; --ochre-line:#FAC775;
+    /* 风险：红。600 / 50 */
+    --clay:#A32D2D; --clay-bg:#FCEBEB; --clay-line:#F7C1C1;
+    /* 正面：绿。600 / 50 */
+    --moss:#3B6D11; --moss-bg:#EAF3DE; --moss-line:#C0DD97;
+    /* 正文关键句底：暖沙 */
+    --mark:#F0E2C0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+       font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+       line-height:1.8;font-size:16px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:820px;margin:0 auto;padding:0 26px 88px}
+
+  /* ---------- 页眉 ---------- */
+  header{padding:64px 0 32px;border-bottom:2px solid var(--ink)}
+  .kicker{font-size:12px;letter-spacing:.2em;color:var(--ink3);text-transform:uppercase;margin-bottom:20px}
+  h1{font-size:38px;line-height:1.28;margin:0 0 18px;font-weight:700;letter-spacing:-.015em}
+  .sub{color:var(--ink2);font-size:17px;line-height:1.75;margin:0}
+  .meta{margin-top:22px;font-size:12.5px;color:var(--ink3)}
+  .meta span{margin-right:20px}
+
+  /* ---------- 版块骨架 ---------- */
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  h2{font-size:25px;line-height:1.4;margin:0 0 20px;font-weight:700;letter-spacing:-.01em}
+  h2 .num{display:block;font-size:12px;letter-spacing:.22em;color:var(--accent);
+          font-weight:700;margin:0 0 9px}
+  h3{font-size:17px;margin:34px 0 10px;font-weight:700;padding-left:14px;position:relative}
+  h3::before{content:"";position:absolute;left:0;top:.3em;bottom:.3em;width:4px;
+             border-radius:2px;background:var(--ochre)}
+  .box h3{margin-top:0}
+  .box h3::before{background:var(--accent)}
+
+  /* ---------- 正文层级：16 正文 / 18 导语 / 20 段内关键 / 28 首屏结论 ---------- */
+  p{margin:14px 0}
+  .lead{font-size:18px;line-height:1.85}
+  p.y{font-size:20px;line-height:1.7;font-weight:600}
+  .big{font-size:28px;font-weight:700;line-height:1.5;letter-spacing:-.01em;margin:0}
+  ul{padding-left:20px;margin:14px 0}
+  li{margin:10px 0}
+
+  /* ---------- 盒子 ---------- */
+  .box{background:var(--card);border:1px solid var(--line);border-radius:14px;
+       padding:24px 26px;margin:24px 0;box-shadow:0 1px 2px rgba(20,20,15,.035)}
+  .box.blue{background:var(--accent-bg);border-color:var(--accent-line)}
+  .box.orange{background:var(--ochre-bg);border-color:var(--ochre-line)}
+  .box.red{background:var(--clay-bg);border-color:var(--clay-line)}
+  .box.green{background:var(--moss-bg);border-color:var(--moss-line)}
+  .box.amber{background:var(--ochre-bg);border-color:var(--ochre-line)}
+
+  /* ---------- 表格 ---------- */
+  table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14.5px}
+  th,td{text-align:left;padding:13px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:transparent;border-bottom:2px solid var(--ink);font-weight:700;
+           font-size:12.5px;letter-spacing:.06em;color:var(--ink2)}
+  td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+  /* ---------- 出处 ---------- */
+  .src{font-size:12.5px;color:var(--ink3);line-height:1.7;margin-top:10px}
+
+  /* ---------- 图 ---------- */
+  .fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:26px;margin:28px 0}
+  .fig figcaption{font-size:13px;color:var(--ink2);margin-top:18px;line-height:1.75}
+
+  /* ---------- 重点标记 ---------- */
+  .y{font-weight:600}
+  .y em{font-style:normal;background:var(--mark);padding:0 .12em;border-radius:2px;
+        -webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+  /* ---------- 三动作卡 ---------- */
+  .act{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0}
+  .act > div{background:var(--card);border:1px solid var(--line);border-radius:12px;
+           padding:20px;border-top:3px solid var(--accent)}
+  .act div:nth-child(2){border-top-color:var(--ochre)}
+  .act div:nth-child(3){border-top-color:var(--clay)}
+  .act .h{font-size:12px;letter-spacing:.16em;color:var(--ink3);font-weight:700;margin-bottom:10px}
+  .act .b{font-size:15px;line-height:1.75}
+  .dial{display:flex;align-items:center;gap:6px;margin:14px 0 4px}
+  .dial i{display:block;height:8px;border-radius:4px;background:var(--line);flex:1}
+  .dial i.on{background:var(--ochre)}
+  .dial i.hi{background:var(--clay)}
+
+  /* ---------- 长期信源池 ---------- */
+  .pool{list-style:none;margin:24px 0 0;padding:0}
+  .pool>li{margin:0 0 28px}
+  .pool .grp{font-size:12px;letter-spacing:.16em;color:var(--accent);font-weight:700;
+             padding-bottom:9px;margin-bottom:14px;border-bottom:1px solid var(--line2)}
+  .pool .it{margin:0 0 15px;padding-left:16px;position:relative;font-size:15px;line-height:1.8}
+  .pool .it::before{content:"";position:absolute;left:0;top:.7em;width:5px;height:5px;
+                    border-radius:50%;background:var(--line2)}
+  .pool .nm{font-weight:700}
+  .pool .lg{display:block;color:var(--ink3);font-size:13px;line-height:1.7}
+  .pool .pub{display:block;color:var(--ink2)}
+
+  /* ---------- 页脚 ---------- */
+  footer{padding:44px 0 0;font-size:13.5px;color:var(--ink3);line-height:1.85}
+  footer strong{color:var(--ink2)}
+  .sig{margin-top:26px;padding-top:18px;border-top:1px solid var(--line);
+       font-size:12.5px;color:var(--ink3);letter-spacing:.06em}
+  @media print{body{background:#fff}.wrap{max-width:none}section{page-break-inside:avoid}}

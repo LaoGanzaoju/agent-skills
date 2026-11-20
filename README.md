@@ -2,13 +2,23 @@
 
 自写的 AI Agent skill 合集。每个 skill 是一个独立目录，含 `SKILL.md` 与配套脚本。
 
-共 24 个 skill。
+共 39 个 skill。
 
 ## devtools
 
 - **[hermes-approvals-switch](./hermes-approvals-switch/)** `v1.0.0` — 安全、幂等地在三个档位间切换 Hermes Agent 的 approvals.mode，日常 smart（风险动作前拦你确认）、全确认 manual（每步都问）、全托管 off（裸奔，不推荐）。每次切换带配置备份与正确重启路径，杜绝改坏、重启卡死、四处撞壁。触发短指令：切审批档 / 审批开关 / Hermes档 / …
 - **[lighthouse-agent-hardening](./lighthouse-agent-hardening/)** `v1.0.0` — 在腾讯云轻量应用服务器上为常驻、有真实能力（命令/文件/外联/凭证）的自主 Agent 做安全加固的操作指南。channel-agnostic，加固锁的是 Agent 自身能力边界，与经哪个聊天频道指挥它无关。覆盖跨地域定位实例、升级修 CVE、收紧 SSH、到期续费提醒、写 SOUL 安全指令、出网白名单权衡。面向非…
 
+- **[chrome-cdp-tab-scraper](./chrome-cdp-tab-scraper/)** `v-` — 通过 Chrome DevTools Protocol 接入用户已打开的浏览器标签，读取已登录页面的实时 DOM 内容；不另起浏览器、不新建 profile。
+- **[cn-pip-install](./cn-pip-install/)** `v-` — 中国网络下 pip 装包前的标准动作：先探生效源，源为空或指向海外时主动提醒改国内镜像，不静默走慢速海外源。
+- **[container-call-audit](./container-call-audit/)** `v-` — 审计多个 WorkBuddy 容器在指定时间窗内对某项能力的真实调用量；先探记录结构再检索，区分「真调用」与「只是提及」。
+- **[gh-git-windows-setup](./gh-git-windows-setup/)** `v-` — 在受限 Windows 机器上打通 GitHub 读写：凭证持久化 + 可用的 HTTPS/SSH git 传输，两条链路分别验证后给出可复现的安装步骤。
+- **[html-render-png](./html-render-png/)** `v-` — 把本地 HTML 精确渲染成 PNG（卡片图 / 海报 / 固定比例图），解决生成式图片无法保证中文文字与版式准确的问题。
+- **[ima-kb-online-bulk-read](./ima-kb-online-bulk-read/)** `v-` — 在线批量读取知识库里的几十上百个文档而不整包下载：串行 + 退避 + 断点，只落文本缓存。
+- **[market-skill-patch](./market-skill-patch/)** `v-` — 维护从市场安装的 skill 的补丁：产出可重打的补丁副本与重打判据，避免升级整包覆盖后修改丢失。
+- **[tencent-edu-course-scrape](./tencent-edu-course-scrape/)** `v1.0.0` — 把图文课程页整本抓成离线 Markdown 备考册，按模块/小节切分并本地化配图；先验证匿名可读再决定是否需要登录。
+- **[wb-skill-publish-check](./wb-skill-publish-check/)** `v1.0.0` — 打包 skill 上架市场前的自检器，一次性验完目录层级、frontmatter 展示字段、头像体积三道平台硬约束。
+- **[windows-playwright-install](./windows-playwright-install/)** `v-` — 在 CDN 不可达 / 缺 VC++ 运行时的 Windows 机器上安装 Playwright + Chromium 的可重复流程，覆盖两种典型失败。
 
 ## 通用
 
@@ -34,6 +44,14 @@
 - **[wb-transcript-mining](./wb-transcript-mining/)** `v-` — 从 WorkBuddy 本地会话 transcript（jsonl）里挖「历史对话原文 + 下文」。 当需要**某段历史对话的逐字原文或它之后 AI 怎么回的/后续结论**，而 `conversation_search`
 - **[wb-client-probe](./wb-client-probe/)** `v-` — WorkBuddy 客户端「机制级取证」——直接搜 app.asar 源码，实证平台到底注入/读取了哪些文件、 各注入块字符上限是多少、某段提示语出自哪里、某个记忆/技能开关叫什么。当需要回答「X 文件会不会
 - **[workspace-archive-closure](./workspace-archive-closure/)** `v-` — 跨 workspace 物理收口归档工作流。当需要把已迁移/已退役的 WorkBuddy 容器（沙盒、空壳、旧项目空间）移出工作区归档、清理 workspace 列表、做机器侧物理收口时使用。触发词：物理收口、容器归档、归档工作区、清理 workspace、移出工作区、收口执行。核心：先只读扫描防漂移、再确认范围与落点…
+- **[buying-reason-rewrite](./buying-reason-rewrite/)** `v-` — 把功能、能力、原理类卖点文案改写成「买的理由」：用户视角的一句话结果，带比较级，读者不用推理。
+- **[session-continuity](./session-continuity/)** `v1.0.0` — 用「收尾 + 继续」把长任务切成多个干净 session，避免上下文腐烂与跨会话失忆，进度与状态可接力。
+
+## 分析方法
+
+- **[ai-signal-calibration](./ai-signal-calibration/)** `v-` — 给中文文本加「AI 味」判据之前，先用自己的真实稿校准业界三信号（句长分布方差 / 连接词密度 / 段落节奏），避免照搬结论把方向判反。
+- **[europe-river-outlook](./europe-river-outlook/)** `v1.0.0` — 面向欧洲内河游轮业的年度级（1–3 年）趋势预判框架：跨学科长序列信源 + 慢变量基线，产出方向性趋势与背景概率。
+- **[europe-river-watch](./europe-river-watch/)** `v2.0.0` — 面向欧洲内河游轮业的按月分级水情预报框架（提前期 ≤6 个月），给出严重度、影响面与本窗口该做什么。
 
 ---
 
