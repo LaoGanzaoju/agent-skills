@@ -2,7 +2,7 @@
 
 自写的 AI Agent skill 合集。每个 skill 是一个独立目录，含 `SKILL.md` 与配套脚本。
 
-共 39 个 skill。
+共 37 个 skill。
 
 ## devtools
 
@@ -50,8 +50,6 @@
 ## 分析方法
 
 - **[ai-signal-calibration](./ai-signal-calibration/)** `v-` — 给中文文本加「AI 味」判据之前，先用自己的真实稿校准业界三信号（句长分布方差 / 连接词密度 / 段落节奏），避免照搬结论把方向判反。
-- **[europe-river-outlook](./europe-river-outlook/)** `v1.0.0` — 面向欧洲内河游轮业的年度级（1–3 年）趋势预判框架：跨学科长序列信源 + 慢变量基线，产出方向性趋势与背景概率。
-- **[europe-river-watch](./europe-river-watch/)** `v2.0.0` — 面向欧洲内河游轮业的按月分级水情预报框架（提前期 ≤6 个月），给出严重度、影响面与本窗口该做什么。
 
 ---
 
