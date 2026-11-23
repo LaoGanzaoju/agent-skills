@@ -27,7 +27,7 @@
 - **[premise-audit](./premise-audit/)** `v0.1.0` — 落施工方案 / 写排期 / 定判据之前，把方案里那些「因为…所以…」的**前提**逐条变成 **能红能绿的断言**，真跑一遍。验不过 ⇒ 改判据或改方案，⛔ 不许带病开工。
 - **[memory-clearance](./memory-clearance/)** `v1.3.0` — 收尾清算 —— session 收尾时「过程信息即时删除」的执行清单。 当用户说「收尾」「收尾清算」「清算」「过程信息删除」，或本 session 出现待办被关闭 / 完成 /
 - **[html-long-doc-to-markdown](./html-long-doc-to-markdown/)** `v-` — 把「长 HTML 文档 / 网页版手册 / 平台导出的 HTML」保真转成 Markdown，并做结构对账。 当需要「html 转 md / 网页转 markdown / 出一份 md 版 / 把 HTML 手册变文本 / 长文 HTML 转 markdown」，
-- **[md2poster-pipeline](./md2poster-pipeline/)** `v0.1.0` — 368 容器贴图号编辑器的「约定符号 md → 贴图号 PNG」替补流水线。 当 `web/mapper.py`（零触碰，只实现 `## ` 分页与 `|表格|`）无法识别 §六 约定符号
+- **[md2poster-pipeline](./md2poster-pipeline/)** `v0.1.0` — 贴图号编辑器的「约定符号 md → 贴图号 PNG」替补流水线。 当 `web/mapper.py`（零触碰，只实现 `## ` 分页与 `|表格|`）无法识别 §六 约定符号
 - **[md-to-docx](./md-to-docx/)** `v-` — Markdown → Word（「转 docx」）的固化路径。当甘晓东说「转docx / 转成 docx / md 转 Word / 出个正式件 / 出 docx」， 或任何本地 .md 需要变成本地可编辑 .docx 时使用。默认走「轻量路」= 本地编辑器通道（create_doc → doc_insert_mark…
 - **[mac-universal-bundle-verify](./mac-universal-bundle-verify/)** `v-` — macOS universal(.app) 或任何 fat Mach-O 包在发布/交付给他人前的核验清单——覆盖「cargo tauri build 不签名」这个必踩坑、切片级架构核验（不靠 lipo 自报）、依赖库/符号/ABI 差异判读、以及如何用源码层扫描把「跨架构风险」从『不知道』量化成『只差运行时确认』。当…
 - **[svg-long-image](./svg-long-image/)** `v-` — 用「SVG 代码 → Chrome headless → PNG」出长图（贴图号/小绿书、知识图解、信息长图、海报、公众号配图）。当甘晓东说「出图 / 出长图 / 做一张贴图号 / 知识图解 / 把这篇做成图 / 生成图片文件」，或需要把结构化知识做成可发布的 PNG（任意画幅，含 1242×1656 的 3:4 竖版…
@@ -40,7 +40,7 @@
 - **[ebook-fetch](./ebook-fetch/)** `v-` — 找电子书并落地本地文件的正式能力（两条书源腿：诚通网盘优先、百度 AI 对话小程序兜底）。当需要找书、下载电子书（epub/mobi/azw3/pdf）、测试某个推文/仓库推荐的电子书源能不能用、或给书籍蒸馏流水线补原料时使用本 skill。覆盖：按书名搜诚通索引、一键下载三格式、百度小程序渲染扒 PDF 链、下载后验…
 - **[ima-zip-migrate](./ima-zip-migrate/)** `v-` — 从 IMA 知识库下载 zip 迁移包并安全解压落位到本地工作区（跨机迁移场景）。当需要「从 IMA 共享库取 zip → 下载 → 解压到目标目录 → 校验结构 → 回填进度回执」时使用。触发词：迁移包、zip 落地、从 IMA 下载压缩包、跨机迁移解压、记忆资产包。
 - **[skill-trim-audit](./skill-trim-audit/)** `v-` — 副业雷达 · skill 使用度审计与交叉瘦身（A∪B 判据）。当甘晓东说「skill 瘦身 / 能力盘点 / 交叉比对 / 哪些 skill 没用了 / 清理 skill」、或**找替代 API / 某接口太贵 / 付费接口有无更便宜的覆盖**
-- **[wb-library-access](./wb-library-access/)** `v1.0.0` — WB 资料库（workbuddy 内置资料库）读写 canonical 路径与鉴权流程。 凡涉及 资料库 / 空间文档 / 老甘素材库 的读、写、搜、列操作，或 space_api.py 报错时使用。
+- **[wb-library-access](./wb-library-access/)** `v1.0.0` — WB 资料库（workbuddy 内置资料库）读写 canonical 路径与鉴权流程。 凡涉及 资料库 / 空间文档 / 个人素材库 的读、写、搜、列操作，或 space_api.py 报错时使用。
 - **[wb-transcript-mining](./wb-transcript-mining/)** `v-` — 从 WorkBuddy 本地会话 transcript（jsonl）里挖「历史对话原文 + 下文」。 当需要**某段历史对话的逐字原文或它之后 AI 怎么回的/后续结论**，而 `conversation_search`
 - **[wb-client-probe](./wb-client-probe/)** `v-` — WorkBuddy 客户端「机制级取证」——直接搜 app.asar 源码，实证平台到底注入/读取了哪些文件、 各注入块字符上限是多少、某段提示语出自哪里、某个记忆/技能开关叫什么。当需要回答「X 文件会不会
 - **[workspace-archive-closure](./workspace-archive-closure/)** `v-` — 跨 workspace 物理收口归档工作流。当需要把已迁移/已退役的 WorkBuddy 容器（沙盒、空壳、旧项目空间）移出工作区归档、清理 workspace 列表、做机器侧物理收口时使用。触发词：物理收口、容器归档、归档工作区、清理 workspace、移出工作区、收口执行。核心：先只读扫描防漂移、再确认范围与落点…

@@ -26,7 +26,7 @@ description: |
 
 - `<workspace-slug>` ＝ workspace 绝对路径把 `/` 换成 `-`（中文原样保留）。
   例：`<工作目录>`
-  → `Users-stephen-WorkBuddy-368型双面旋转相控阵雷达`
+  → `Users-<用户名>-WorkBuddy-<工作区名>`（示例，按实际路径替换）
 - `<session-uuid>` ＝ `conversation_search` 结果里的 `conversation_id`。
 - 同目录还有 `<uuid>.file-rollback.ndjson`（文件改动回滚记录，可查某文件的**改前原文**）。
 

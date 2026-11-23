@@ -87,8 +87,8 @@ github
 # 单价为 2026-09-27 审计实测（真账以厂商账单为准；调价时回来改这里的注释）。
 视频号·账号维度取链                  # Just One（get-account-videos ¥0.50/次 + get-video-download-url ¥0.30/条）——
                                      # **当前唯一**能「按账号身份枚举全部作品→取直链」的通道 ⛔ 无付费即无此能力。
-                                     # 红狐便宜(¥0.036–0.054)但只有单条解析、没有账号枚举 ⇒ 是分工不是替代。
-视频号·单条分享链接解析              # 红狐 parseWork/parse ¥0.054/次，腾讯 CDN 免鉴权直链，费率可接受，暂不找替代。
+                                     # 红狐便宜（按厂商公开报价）但只有单条解析、没有账号枚举 ⇒ 是分工不是替代。
+视频号·单条分享链接解析              # 红狐 parseWork/parse（按厂商公开报价），腾讯 CDN 免鉴权直链，费率可接受，暂不找替代。
 公众号·历史文章枚举                  # Just One get-account-history-articles/v2 ¥0.40/次（当前低价，同族一起看）
 ASR·火山云转写                       # 按秒计费；本机 faster-whisper 因 8G OOM 禁用 ⇒ 现役唯一方案，暂不找替代。
 
@@ -114,7 +114,7 @@ skill-trim-audit
 cangjie-skill
 cli-anything-hub
 github-pages-auto-deploy
-laogan-perspective                                # 女娲蒸馏老甘人设（A2试点）2026-09-22 点名保留，防瘦身误删（人物skill·近30天零调用）
+laogan-perspective                                # 蒸馏人设 skill（试点）2026-09-22 点名保留，防瘦身误删（人物skill·近30天零调用）
 
 ## 用户曾指定必留（2026-08-12 标注，2026-09-12 仍未推翻）
 workbuddy-asset-migration

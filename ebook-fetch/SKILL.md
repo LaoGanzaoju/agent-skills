@@ -15,7 +15,7 @@ agent_created: true
 
 **裁决（2026-10-17）**：两腿并存、代码不合并（上游/下游/产物全不同，硬合并＝泄漏抽象）；使用顺序＝**诚通优先、百度兜底**（免登录、索引可 grep、三格式、约 1 分钟/本）。
 
-脚本与 SOP 真源均在 368 容器，本 skill 是路由层，不复制代码（避免双真源）。
+脚本与 SOP 真源均在主工程容器，本 skill 是路由层，不复制代码（避免双真源）。
 
 ## 决策树（按顺序走，命中即停）
 
@@ -64,7 +64,7 @@ python3 $CT/scripts/verify_ctfile_fetch.py --neg     # 负控须 9/9 全转红
 python3 $CT/scripts/smartapp_pdf_fetch.py "<对话URL>" --download --out-dir "<输出目录>"
 ```
 
-- 依赖：playwright-core ＋ 系统 Chrome（已装）；`bdpan` CLI 已登录（账号 stephen_om）；
+- 依赖：playwright-core ＋ 系统 Chrome（已装）；`bdpan` CLI 已登录（账号按实际配置，凭据不外传）；
 - 只扒链不下载（无副作用，先看有没有货）：去掉 `--download --out-dir`；
 - 静态抓取（curl）对这个页面无效——纯 JS 空壳，必须渲染。
 
@@ -93,7 +93,7 @@ ls -la "<file>"                         # 大小与 API 报告的 file_size_byte
 2. 账号凭据（bdpan/夸克 cookie、小程序 token）**不进任何对外产物**；token 过期找甘重取，不猜不绕；
 3. 报数必须带归因（哪条腿、哪个源、大小多少），禁印象式断言；
 4. 两条腿都依赖外部服务：诚通仓库可能被 DMCA、百度 token 会过期——脚本和 SOP 是资产（已固化），源是消耗品（会死）；重新审视触发条件＝仓库被删/链大面失效/百度 token 长期过期，届时换优先级即可，结构不动；
-5. 本 skill 是路由层：**改脚本/SOP 去 368 容器改**（`$CT/scripts/`＋`$CT/SOP/`），不在 skill 目录复制代码。
+5. 本 skill 是路由层：**改脚本/SOP 去主工程容器改**（`$CT/scripts/`＋`$CT/SOP/`），不在 skill 目录复制代码。
 
 ## Resources
 

@@ -2,8 +2,8 @@
 name: wb-library-access
 description: |
   WB 资料库（workbuddy 内置资料库）读写 canonical 路径与鉴权流程。
-  凡涉及 资料库 / 空间文档 / 老甘素材库 的读、写、搜、列操作，或 space_api.py 报错时使用。
-  触发词：资料库、素材库、space_api、空间文档、老甘素材库。
+  凡涉及 资料库 / 空间文档 / 个人素材库 的读、写、搜、列操作，或 space_api.py 报错时使用。
+  触发词：资料库、素材库、space_api、空间文档、个人素材库。
   判据真源：本文件。军规 `~/.workbuddy/rules/10-知识库访问钉死.md` 只留触发与钉死 ID。
 version: 1.0.0
 author: 甘晓东
@@ -35,7 +35,7 @@ agent_created: true
 
 ## search vs list 铁则（防「以为库没了」误判）
 
-- `space.searcher.search-nodes` **只索引正文，不索引文件夹标题**——搜「老甘/造局/素材库」返回空是正常，不代表不存在。
+- `space.searcher.search-nodes` **只索引正文，不索引文件夹标题**——按素材库名搜索返回空是正常，不代表不存在。
 - 找文件夹 / 列目录 → 用 `space.workspace.list-node`（`--space-id` + `--parent-node-id`）。
 - 取节点内容 → 先 `space.workspace.node-info` 读 `kind`，再按 kind 走 `doc/link/database/...` entry。
 
@@ -49,5 +49,5 @@ agent_created: true
 | 现象 | 根因 | 修复（钉死动作） |
 |---|---|---|
 | `AUTH_REQUIRED` | 没换票或 token 过期 | `ToolSearch connect_open_platform` → DeferExecuteTool 重取 → `--token-stdin` |
-| 搜「老甘」返回空 | search 不索标题 | 改用 `list-node` 列目录 |
+| 搜库名返回空 | search 不索标题 | 改用 `list-node` 列目录 |
 | 直接裸跑 `space_api.py` 报错 | 绕路未换票 | 回到上面鉴权三步，禁止裸跑 |
